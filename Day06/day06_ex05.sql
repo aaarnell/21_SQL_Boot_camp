@@ -1,0 +1,10 @@
+COMMENT ON TABLE person_discounts IS 'Таблица персональных скидом клиентов для перечня пицерий';
+COMMENT ON COLUMN person_discounts.id IS 'Уникальный идентификатор записи в таблице';
+COMMENT ON COLUMN person_discounts.person_id IS 'Уникальный идентификатор клиента из таблицы person';
+COMMENT ON COLUMN person_discounts.pizzeria_id IS 'Уникальный идентификатор пиццерии из таблицы pizzeria';
+COMMENT ON COLUMN person_discounts.discount IS 'Персональная скидка клиента person_id в пиццерии pizzeria_id';
+COMMENT ON CONSTRAINT ch_nn_person_id ON person_discounts IS 'Ограничение на столбец person_id, не должен быть NULL';
+COMMENT ON CONSTRAINT ch_nn_pizzeria_id ON person_discounts IS 'Ограничение на столбец pizzeria_id, не должен быть NULL';
+COMMENT ON CONSTRAINT ch_nn_discount ON person_discounts IS 'Ограничение на столбец discount, не должен быть NULL';
+COMMENT ON CONSTRAINT ch_range_discount ON person_discounts IS 'Ограничение на столбец discount, должен находиться в диапазоне значений от 0 до 100';
+COMMENT ON INDEX idx_person_discounts_unique IS 'Обеспечивает уникальность данных таблицы person_discounts по значениям полей person_id и pizzeria_id';
